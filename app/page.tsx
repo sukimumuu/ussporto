@@ -1,95 +1,70 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import ussImg from "@/public/images/rizqybagus.webp";
+
+
+import Navbar from "@/components/organisms/Navbar";
+import Footer from "@/components/organisms/Footer";
+import HeroCarousel from "@/components/partials/HeroCarousel";
+import ProjectLaravel from "@/components/partials/ProjectLaravel";
+import ProjectUnity from "@/components/partials/ProjectUnity";
+import ProjectHTML from "@/components/partials/ProjectHTML";
+
+import { FaLaravel } from "react-icons/fa";
+import { FaUnity } from "react-icons/fa";
+import { FaHtml5 } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <>
+    <main className="w-5/6 mx-auto p-3">
+      <Navbar />
+      <div className="flex flex-col p-8 h-screen">
+          <div className="ms-auto mb-8">
+            <HeroCarousel />
+          </div>
+          <div>
+            <h1 className="text-5xl font-bold w-1/2 leading-tight"><span className="text-emerald-600">Enjoying Explore:</span> A Journey Through IT & Programming</h1>
+            <p className="py-6 w-2/3 text-2xl">
+            "I enjoy exploring the vast world of IT, especially in programming. From learning various programming languages and mastering server management to experimenting with creative design, I'm always eager to dive deeper into technology. ""
+            </p>
+            <button className="btn bg-emerald-600 text-white">Start Explore</button>
+          </div>
+      </div>
+      <div className="divider mb-12">Project</div>
+      <div className="tabs tabs-lift">
+        <label className="tab">
+          <input type="radio" name="project_tab" defaultChecked />
+          <FaLaravel className="mr-4" />
+          Laravel
+        </label>
+        <div className="tab-content bg-base-100 border-base-300 p-6">
+          <ProjectLaravel />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <label className="tab">
+          <input type="radio" name="project_tab" />
+          <FaUnity className="mr-4" />
+          Unity
+        </label>
+        <div className="tab-content bg-base-100 border-base-300 p-6">
+          <ProjectUnity />
+        </div>
+        <label className="tab">
+          <input type="radio" name="project_tab" />
+          <FaHtml5 className="mr-4" />
+          Html
+        </label>
+        <div className="tab-content bg-base-100 border-base-300 p-6">
+          <ProjectHTML />
+        </div>
+      </div>
+      <div className="divider mb-12">About</div>
+      <div>
+        <Image src={ussImg} alt="self-photo" className="w-80 rounded-full block mx-auto mb-8"/>
+        <p className="text-center text-lg">"Hi, I'm Rizqy Bagus Saputra, a tech enthusiast with a deep passion for programming and innovation. I graduated from SMK N 1 Purwokerto, majoring in Software Engineering, and I'm currently pursuing a degree in Information Systems at Universitas Bina Sarana Informatika. I love diving into the ever-evolving world of technology, constantly exploring new concepts, tools, and methodologies to enhance my skills. For me, programming isn't just about writing code—it's about solving problems, creating impactful solutions, and continuously learning in this dynamic field."</p>
+      </div>
+    </main>
+    <Footer />
+    </>
+
   );
 }
