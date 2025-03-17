@@ -12,13 +12,13 @@ const Footer = () => {
         </nav>
         <nav>
             <div className="grid grid-flow-col gap-4">
-            <a>
+            <a href="https://www.instagram.com/rizqybs24/" target="_blank">
                 <FaInstagram className="text-2xl" />
             </a>
-            <a>
+            <a href="https://linkedin.com/in/rizqybs24" target="_blank">
                 <IoLogoLinkedin className="text-2xl" />
             </a>
-            <a>
+            <a href="https://pausberbuluu.blogspot.com/" target="_blank">
                 <FaBlogger className="text-2xl" />
             </a>
             </div>

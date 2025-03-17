@@ -8,6 +8,7 @@ import HeroCarousel from "@/components/partials/HeroCarousel";
 import ProjectLaravel from "@/components/partials/ProjectLaravel";
 import ProjectUnity from "@/components/partials/ProjectUnity";
 import ProjectHTML from "@/components/partials/ProjectHTML";
+import AnimateScrolling from "@/components/partials/AnimateScrolling";
 
 import { FaLaravel } from "react-icons/fa";
 import { FaUnity } from "react-icons/fa";
@@ -29,6 +30,7 @@ export default function Home() {
             </p>
             <button className="btn bg-emerald-600 text-white">Start Explore</button>
           </div>
+          <AnimateScrolling />
       </div>
       <div className="divider mb-12">Project</div>
       <div className="tabs tabs-lift">
