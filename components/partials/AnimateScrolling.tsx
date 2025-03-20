@@ -15,7 +15,8 @@ const logos: string[] = [
   "/images/animate_scrolling/cdnlogo.com_next-js.svg",
   "/images/animate_scrolling/cdnlogo.com_unity.svg",
   "/images/animate_scrolling/cdnlogo.com_mysql.svg",
-  "/images/animate_scrolling/cdnlogo.com_flutter.svg"
+  "/images/animate_scrolling/cdnlogo.com_flutter.svg",
+  "/images/animate_scrolling/cdnlogo.com_typescript.svg"
 ];
 
 const chunkArray = (array: string[], size: number) => {
@@ -28,7 +29,7 @@ const AnimateScrolling = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
-  const logoChunks = chunkArray(logos, 5);
+  const logoChunks = chunkArray(logos, 7);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const AnimateScrolling = () => {
           setCurrentIndex((prev) => (prev + 1) % logoChunks.length);
           setFade(true);
         }, 500);
-      }, 5000);
+      }, 3000);
     }
 
     return () => {
@@ -66,8 +67,8 @@ const AnimateScrolling = () => {
                 <Image
                   src={logo}
                   alt={`Logo ${index}`}
-                  width={64}
-                  height={64}
+                  width={60}
+                  height={60}
                 />
               </div>
             ))}

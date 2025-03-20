@@ -1,20 +1,27 @@
 import Image from "next/image";
+import Link from "next/link";
 import ussImg from "@/public/images/rizqybagus.webp";
 
 
 import Navbar from "@/components/organisms/Navbar";
 import Footer from "@/components/organisms/Footer";
 import HeroCarousel from "@/components/partials/HeroCarousel";
-import ProjectLaravel from "@/components/partials/ProjectLaravel";
-import ProjectUnity from "@/components/partials/ProjectUnity";
-import ProjectHTML from "@/components/partials/ProjectHTML";
+import ProjectCard from "@/components/atoms/ProjectCard";
 import AnimateScrolling from "@/components/partials/AnimateScrolling";
 
 import { FaLaravel } from "react-icons/fa";
 import { FaUnity } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa";
 
+import { project_laravel } from "@/data/project_laravel"
+import { project_unity } from "@/data/project_unity"
+import { project_html } from "@/data/project_html"
+
 export default function Home() {
+  const laravel = project_laravel.slice(0, 3);
+  const unity = project_unity.slice(0, 3);
+  const html = project_html.slice(0, 3);
+
   return (
     <>
     <main className="w-5/6 mx-auto p-3">
@@ -40,7 +47,9 @@ export default function Home() {
           Laravel
         </label>
         <div className="tab-content bg-base-100 border-base-300 p-6">
-          <ProjectLaravel />
+          {laravel.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
         <label className="tab">
           <input type="radio" name="project_tab" />
@@ -48,7 +57,9 @@ export default function Home() {
           Unity
         </label>
         <div className="tab-content bg-base-100 border-base-300 p-6">
-          <ProjectUnity />
+          {unity.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
         <label className="tab">
           <input type="radio" name="project_tab" />
@@ -56,9 +67,12 @@ export default function Home() {
           Html
         </label>
         <div className="tab-content bg-base-100 border-base-300 p-6">
-          <ProjectHTML />
+          {html.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
       </div>
+      <button className="btn bg-emerald-600 block mx-auto my-10 text-white"><Link href="/project">See More Project...</Link></button>
       <div className="divider mb-12">About</div>
       <div>
         <Image src={ussImg} alt="self-photo" className="w-80 rounded-full block mx-auto mb-8"/>

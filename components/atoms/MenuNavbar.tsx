@@ -1,8 +1,14 @@
+import Link from "next/link"
+
 const MenuNavbar = () => {
   return (
     <>
-    <li><a>Home</a></li>
-    <li><a>Project</a></li>
+    <li>
+      <Link href="/">Home</Link>
+    </li>
+    <li>
+      <Link href="/project">Project</Link>
+    </li>
     <li><a>About</a></li>
     </>
   )

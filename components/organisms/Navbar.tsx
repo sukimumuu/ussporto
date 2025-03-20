@@ -4,9 +4,9 @@ import MenuNavbar from "../atoms/MenuNavbar";
 import selfImg from "@/public/images/self.jpeg"
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-md rounded-xl px-4">
+    <div className="navbar bg-base-100 shadow-md rounded-xl px-4 ">
         <div className="navbar-start">
-        <a className="text-xl text-emerald-600 font-bold">Sukimumuu</a>
+        <a href="/" className="text-xl text-emerald-600 font-bold">Sukimumuu</a>
         <ul className="menu menu-horizontal px-1">
             <MenuNavbar />
         </ul>
