@@ -32,7 +32,7 @@ export default function Home() {
           <div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full lg:w-1/2 leading-tight"><span className="text-emerald-600">Enjoying Explore:</span> A Journey Through IT & Programming</h1>
           <p className="py-6 text-base sm:text-lg lg:text-2xl w-full lg:w-2/3">
-            I enjoy exploring the vast world of IT, especially in programming. From learning various programming languages and mastering server management to experimenting with creative design, I'm always eager to dive deeper into technology.
+            I enjoy exploring the vast world of IT, especially in programming. From learning various programming languages and mastering server management to experimenting with creative design, I&apos;m always eager to dive deeper into technology.
             </p>
             <button className="btn bg-emerald-600 text-white">Start Explore</button>
           </div>
