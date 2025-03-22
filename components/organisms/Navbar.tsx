@@ -1,12 +1,13 @@
 import Image from "next/image";
 import MenuNavbar from "../atoms/MenuNavbar";
+import Link from "next/link";
 
 import selfImg from "@/public/images/self.jpeg"
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-md rounded-xl px-4 ">
         <div className="navbar-start">
-        <a href="/" className="text-xl text-emerald-600 font-bold">Sukimumuu</a>
+        <Link href="/" className="text-xl text-emerald-600 font-bold">Sukimumuu</Link>
         <ul className="menu menu-horizontal px-1 max-[768px]:hidden">
             <MenuNavbar />
         </ul>

@@ -32,7 +32,7 @@ export default function Home() {
           <div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full lg:w-1/2 leading-tight"><span className="text-emerald-600">Enjoying Explore:</span> A Journey Through IT & Programming</h1>
           <p className="py-6 text-base sm:text-lg lg:text-2xl w-full lg:w-2/3">
-            "I enjoy exploring the vast world of IT, especially in programming. From learning various programming languages and mastering server management to experimenting with creative design, I'm always eager to dive deeper into technology. ""
+            I enjoy exploring the vast world of IT, especially in programming. From learning various programming languages and mastering server management to experimenting with creative design, I'm always eager to dive deeper into technology.
             </p>
             <button className="btn bg-emerald-600 text-white">Start Explore</button>
           </div>
@@ -74,7 +74,7 @@ export default function Home() {
       <div className="divider mb-12">About</div>
       <div>
         <Image src={ussImg} alt="self-photo" className="w-80 max-[426px]:w-64 rounded-full block mx-auto mb-8"/>
-        <p className="text-center text-lg">"Hi, I'm Rizqy Bagus Saputra, a tech enthusiast with a deep passion for programming and innovation. I graduated from SMK N 1 Purwokerto, majoring in Software Engineering, and I'm currently pursuing a degree in Information Systems at Universitas Bina Sarana Informatika. I love diving into the ever-evolving world of technology, constantly exploring new concepts, tools, and methodologies to enhance my skills. For me, programming isn't just about writing code—it's about solving problems, creating impactful solutions, and continuously learning in this dynamic field."</p>
+        <p className="text-center text-lg">&quot;Hi, I&apos;m Rizqy Bagus Saputra, a tech enthusiast with a deep passion for programming and innovation. I graduated from SMK N 1 Purwokerto, majoring in Software Engineering, and I&apos;m currently pursuing a degree in Information Systems at Universitas Bina Sarana Informatika. I love diving into the ever-evolving world of technology, constantly exploring new concepts, tools, and methodologies to enhance my skills. For me, programming isn&apos;t just about writing code—it&apos;s about solving problems, creating impactful solutions, and continuously learning in this dynamic field.&quot;</p>
       </div>
     </main>
     <Footer />
