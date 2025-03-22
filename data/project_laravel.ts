@@ -38,7 +38,7 @@ export const project_laravel = [
         link: "",
         date: "22 August 2024 - 23 August 2024",
         description:
-                'Website donation for "Rumah Singgah Amanah" place',
+                'Website donation for &quot;Rumah Singgah Amanah&quot; place',
         roles: ["Application Designer", "Backend Development"],
         note: "Due to NDA, project demo and code are not publicly available",
     },
@@ -49,7 +49,7 @@ export const project_laravel = [
         link: "",
         date: "1 August 2024 - 19 August 2024",
         description:
-                'Website registration for "Rumah Singgah Amanah" place',
+                'Website registration for &quot;Rumah Singgah Amanah&quot; place',
         roles: ["Application Designer", "Backend Development"],
         note: "Due to NDA, project demo and code are not publicly available",
     },
@@ -60,7 +60,7 @@ export const project_laravel = [
        link: "",
        date: "9 July 2024 - 29 August 2024",
        description:
-       'Website registration for event "Funrun Rotary Purwokerto"',
+       'Website registration for event &quot;Funrun Rotary Purwokerto&quot;',
        roles: ["Application Designer", "Backend Development"],
        note: "Due to NDA, project demo and code are not publicly available",
     },
@@ -71,7 +71,7 @@ export const project_laravel = [
         link: "https://sid.lumbungdata.id",
         date: "21 June 2024 - Now",
         description:
-                '"SID LUMBUNGDATA" for village population data collection and letter submission system',
+                '&quot;SID LUMBUNGDATA&quot; for village population data collection and letter submission system',
         roles: ["Application Designer", "Backend Development"],
         note: "",
     },

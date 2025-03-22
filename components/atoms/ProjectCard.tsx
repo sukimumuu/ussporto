@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { StaticImageData } from "next/image";
+
 import { FiExternalLink } from "react-icons/fi";
 import { MdWorkHistory } from "react-icons/md";
 
 interface ProjectProps {
   project: {
-    imgSrc: any;
+    imgSrc: string | StaticImageData;
     alt: string;
     title: string;
     link: string;
