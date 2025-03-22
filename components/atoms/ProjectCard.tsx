@@ -17,14 +17,10 @@ interface ProjectProps {
 
 const ProjectCard = ({ project }: ProjectProps) => {
   return (
-    <div className="flex mb-8 shadow-lg">
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-      <Image src={project.imgSrc} alt={project.alt} className="w-[580px]" />
-        </a>
+    <div className="flex flex-col lg:flex-row mb-8 shadow-lg">
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
+      <Image src={project.imgSrc} alt={project.alt} className="w-full max-w-lg" />
+    </a>
       <div className="flex flex-col justify-between p-2">
       <div className="p-3">
         <div className="flex items-center gap-2">
@@ -48,7 +44,7 @@ const ProjectCard = ({ project }: ProjectProps) => {
         </div>
       </div>
       <div>
-        {project.note ? <span className="badge badge-warning">{project.note}</span> : null}
+        {project.note ? <span className="badge badge-warning py-5">{project.note}</span> : null}
       </div>
       </div>
     </div>

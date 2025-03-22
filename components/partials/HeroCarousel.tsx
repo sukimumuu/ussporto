@@ -1,44 +1,54 @@
-"use client"
-import { useState, useEffect } from "react";
-
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
 import PMLP from "@/public/images/projects/pm_landing-page.jpg";
-import NightmareGame from "@/public/images/projects/nightmare1.jpg";
+import melesat from "@/public/images/projects/melesat.png"
 import GameExhibition from "@/public/images/projects/game_exhi.jpg";
 import PerpusSmecone from "@/public/images/projects/perpus.png";
 
 const HeroCarousel = () => {
-    const [index, setIndex] = useState(0);
-    const images = [
-      PMLP,
-      NightmareGame,
-      GameExhibition,
-      PerpusSmecone
-    ];
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 2500);
-  
-      return () => clearInterval(interval);
-    }, [images.length]);
-    
-    return (
-        <div className="carousel rounded-box w-96 overflow-hidden shadow-xl">
-          <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${index * 100}%)` }}
-          >
-            {images.map((src, i) => (
-              <div key={i} className="carousel-item w-full flex-shrink-0">
-                <Image src={src} className="w-full" alt={`Carousel ${i}`} />
-              </div>
-            ))}
-          </div>
-        </div>
-    );
-}
+  const images = [PMLP, melesat, GameExhibition, PerpusSmecone];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const lastIndex = images.length - 1;
 
-export default HeroCarousel
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? lastIndex : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === lastIndex ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="relative w-full max-w-[640px] h-[320px] mx-auto shadow-xl rounded-box overflow-hidden">
+    <div
+      className="flex transition-transform duration-700 ease-in-out h-full"
+      style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+    >
+      {images.map((src, i) => (
+        <div key={i} className="w-full flex-shrink-0 h-full">
+          <Image
+            src={src}
+            alt={`Carousel ${i}`}
+            className="w-full h-full object-cover"
+            width={500}
+            height={300}
+          />
+        </div>
+      ))}
+    </div>
+
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <button onClick={prevSlide} className="btn btn-circle">
+        ❮
+      </button>
+      <button onClick={nextSlide} className="btn btn-circle">
+        ❯
+      </button>
+    </div>
+  </div>
+  );
+};
+
+export default HeroCarousel;

@@ -7,7 +7,7 @@ import { FaBlogger } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-        <nav className="menu flex flex-row! gap-4">
+        <nav className="menu flex flex-row! gap-4 max-[321px]:gap-2">
             <MenuNavbar />
         </nav>
         <nav>
