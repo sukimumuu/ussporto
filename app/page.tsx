@@ -1,9 +1,13 @@
 import Image from "next/image";
 
+// Components
+import Card from "@/components/card"
+
 // Images
 import BannerImage from "@/public/images/keyboard-foto.webp"
 import SelfImage from "@/public/images/rizqybagus.webp"
 import IndonesiaFlag from "@/public/images/indonesia.png"
+import Hugo from "@/public/images/hugo.png"
 // Icons
 import { HiMiniInboxArrowDown } from "react-icons/hi2";
 import { FiExternalLink } from "react-icons/fi";
@@ -55,6 +59,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <Card cards={{logo: Hugo, company: "Hugo Studio", position: "Backend Developer", date: "June 2024 - April 2025"}} />
           </div>
         </div>
       </div>
