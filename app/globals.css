@@ -1,16 +1,187 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
+@theme {
+  --font-masthead: var(--font-cinzel), serif;
+  --font-headline: var(--font-playfair), serif;
+  --font-news: var(--font-newsreader), serif;
+  --font-typewriter: var(--font-courier), monospace;
+}
+
+/* Explicit font family utilities */
+.font-masthead { font-family: var(--font-cinzel), Georgia, serif; }
+.font-headline { font-family: var(--font-playfair), Georgia, serif; }
+.font-news { font-family: var(--font-newsreader), Georgia, serif; }
+.font-typewriter { font-family: var(--font-courier), Courier, monospace; }
+
+/* Retro Newspaper Accents & Styling */
+:root {
+  --paper-bg: #f5f0e3;
+  --paper-sheet: #fbf7ee;
+  --paper-aged: #ede4d1;
+  --ink-primary: #181615;
+  --ink-secondary: #4a453f;
+  --ink-accent: #8b2621;
+}
+
+body {
+  background-color: #f3eedf;
+  color: var(--ink-primary);
+  font-family: var(--font-news), Georgia, serif;
+  /* Subtle newsprint pulp grain */
+  background-image: 
+    radial-gradient(#181615 0.35px, transparent 0.35px),
+    linear-gradient(to right, rgba(24, 22, 21, 0.02) 1px, transparent 1px);
+  background-size: 16px 16px, 120px 100%;
+}
+
+/* Newspaper Sheet Wrapper */
+.newspaper-sheet {
+  background-color: var(--paper-sheet);
+  box-shadow: 
+    0 1px 3px rgba(0,0,0,0.1),
+    0 10px 25px -5px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(24, 22, 21, 0.15);
+}
+
+/* Hard Ink Shadow for Retro Woodblock/Print feeling */
+.shadow-retro {
+  box-shadow: 4px 4px 0px #181615;
+}
+
+.shadow-retro-sm {
+  box-shadow: 2px 2px 0px #181615;
+}
+
+.shadow-retro-lg {
+  box-shadow: 6px 6px 0px #181615;
+}
+
+/* Vintage Double Rule Borders */
+.border-vintage-double {
+  border-style: double;
+  border-width: 4px;
+  border-color: #181615;
+}
+
+.border-vintage-thick-thin {
+  border-top: 4px solid #181615;
+  border-bottom: 1px solid #181615;
+}
+
+.border-vintage-thin-thick {
+  border-top: 1px solid #181615;
+  border-bottom: 4px solid #181615;
+}
+
+.border-column-rule {
+  border-color: #181615;
+}
+
+/* Classic Newspaper Drop Cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-headline), Georgia, serif;
+  font-size: 3.85rem;
+  line-height: 0.82;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  font-weight: 700;
+  color: #181615;
+}
+
+/* Vintage Photo Halftone / Sepia Effect */
+.news-photo {
+  filter: grayscale(85%) contrast(110%) sepia(25%);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-photo:hover {
+  filter: grayscale(0%) contrast(100%) sepia(0%);
+}
+
+/* Vintage Stamp / Classified badge */
+.stamp-tag {
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: var(--font-typewriter), monospace;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  border: 2px solid #8b2621;
+  color: #8b2621;
+  padding: 0.15rem 0.5rem;
+  background-color: rgba(251, 247, 238, 0.9);
+}
+
+.stamp-tag-muted {
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: var(--font-typewriter), monospace;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #4a453f;
+  color: #4a453f;
+  padding: 0.15rem 0.5rem;
+  background-color: rgba(251, 247, 238, 0.9);
+}
+
+/* Ornate decorative divider */
+.ornament-rule {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.ornament-rule::before,
+.ornament-rule::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #181615;
+}
+
+.ornament-rule:not(:empty)::before {
+  margin-right: .75em;
+}
+
+.ornament-rule:not(:empty)::after {
+  margin-left: .75em;
+}
+
+/* Custom Scrollbar for vintage feel */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #eae3d2;
+}
+::-webkit-scrollbar-thumb {
+  background: #a89f8b;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6b6352;
+}
+
+/* Print Stylesheet for authentic physical newspaper print */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    background-image: none !important;
   }
-  
-  .shake-idle {
-    animation: shake 1s infinite ease-in-out;
-    animation-delay: 2s;
+  .no-print {
+    display: none !important;
   }
-  
+  .newspaper-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .news-photo {
+    filter: grayscale(100%) !important;
+  }
+}

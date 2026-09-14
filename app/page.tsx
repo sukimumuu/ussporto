@@ -1,69 +1,40 @@
-import Image from "next/image";
-
-// Components
-import Card from "@/components/card"
-
-// Images
-import BannerImage from "@/public/images/keyboard-foto.webp"
-import SelfImage from "@/public/images/rizqybagus.webp"
-import IndonesiaFlag from "@/public/images/indonesia.png"
-import Hugo from "@/public/images/hugo.png"
-// Icons
-import { HiMiniInboxArrowDown } from "react-icons/hi2";
-import { FiExternalLink } from "react-icons/fi";
+import React from "react";
+import NewspaperHeader from "@/components/NewspaperHeader";
+import FrontPageHeadline from "@/components/FrontPageHeadline";
+import ProjectDispatches from "@/components/ProjectDispatches";
+import WorkExperienceSection from "@/components/WorkExperienceSection";
+import ClassifiedsSection from "@/components/ClassifiedsSection";
+import NewspaperFooter from "@/components/NewspaperFooter";
 
 export default function Home() {
   return (
-    <>
-      <div className="flex flex-col">
-        <Image src={BannerImage} alt="banner image - https://www.freepik.com/author/pikisuperstar" className="w-full h-48 object-cover" />
-        <div className="w-11/12 mx-auto">
-          <div className="w-full">
-            <div className="h-36 relative mb-8">
-              <Image src={SelfImage} alt="self picture" className="rounded-full border-4 border-white w-44 h-44 mx-auto absolute -top-8 left-0" />
-              <h2 className="text-3xl font-bold absolute top-10 left-48">Rizqy Bagus Saputra</h2>
-              <p className="text-xl text-gray-500 font-medium absolute top-20 left-48">I'm a junior web developer</p>
-              <button className="btn bg-black text-white border-black absolute top-10 right-0">
-                  <a href="mailto:rizqybs.sp@gmail.com" className="flex items-center text-white text-lg font-bold"><HiMiniInboxArrowDown className="me-3"/> Hire Me</a>
-              </button>
-            </div>
-            <h2 className="text-xl font-semibold">Experience</h2>
-            <p className="mb-3 text-gray-500">I had experience in backend web application development and API integration, convert designs from Figma to responsive view, and teamwork.</p>
-            <hr />
-            <div className="flex mt-8">
-              <div className="w-3/5">
-                <h2 className="text-xl font-semibold">About Me</h2>
-                <p className="mb-3 text-gray-500 text-justify">Hi, I'm Rizqy Bagus Saputra, a tech enthusiast with a deep passion for programming and innovation. I graduated from SMK N 1 Purwokerto, majoring in Software Engineering, and I'm currently pursuing a degree in Information Systems at Universitas Bina Sarana Informatika. I love diving into the ever-evolving world of technology, constantly exploring new concepts, tools, and methodologies to enhance my skills. For me, programming isn't just about writing code—it's about solving problems, creating impactful solutions, and continuously learning in this dynamic field.</p>
-              </div>
-              <div className="w-2/5 p-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="font-semibold">Location</p>
-                    <div className="flex items-center gap-2">
-                      <Image src={IndonesiaFlag} alt="Indonesia flag" className="w-6" />
-                      Purwokerto, ID
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Website</p>
-                    <a className="underline flex items-center gap-4" href="https://pausberbuluu.blogspot.com/">pausberbuluu.blogspot.com <FiExternalLink /></a>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Portfolio</p>
-                    <a className="underline flex items-center gap-4" href="https://ussporto.vercel.app/">ussporto.vercel.app <FiExternalLink /></a>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Email</p>
-                    <a className="underline flex items-center gap-4" href="mailto:rizqybs.sp@gmail.com">rizqybs.sp@gmail.com <FiExternalLink /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <Card cards={{logo: Hugo, company: "Hugo Studio", position: "Backend Developer", date: "June 2024 - April 2025"}} />
-          </div>
-        </div>
-      </div>
-    </>
+    <main className="min-h-screen py-4 sm:py-8 px-2 sm:px-4 md:px-6">
+      {/* Vintage Broadsheet Paper Sheet Wrapper */}
+      <div className="max-w-6xl mx-auto p-4 sm:p-8 md:p-10 bg-[#fbf7ee] border-4 border-[#181615] shadow-retro-lg newspaper-sheet relative">
+        {/* Subtle Newspaper Paper Corner Creases / Vintage Frame Accents */}
+        <div className="absolute top-1.5 left-1.5 w-3 h-3 border-t-2 border-l-2 border-[#181615] pointer-events-none" />
+        <div className="absolute top-1.5 right-1.5 w-3 h-3 border-t-2 border-r-2 border-[#181615] pointer-events-none" />
+        <div className="absolute bottom-1.5 left-1.5 w-3 h-3 border-b-2 border-l-2 border-[#181615] pointer-events-none" />
+        <div className="absolute bottom-1.5 right-1.5 w-3 h-3 border-b-2 border-r-2 border-[#181615] pointer-events-none" />
 
+        {/* 1. The Masthead / Newspaper Header */}
+        <NewspaperHeader />
+
+        {/* 2. Front Page Lead Story & Bio */}
+        <FrontPageHeadline />
+
+        {/* 3. The Project Dispatches Archive (Loaded from @data) */}
+        <ProjectDispatches />
+
+        {/* 4. Hugo Studio Industry Report & Work History */}
+        <WorkExperienceSection />
+
+        {/* 5. Retro Classifieds, Humor & Telegraph Contacts */}
+        <ClassifiedsSection />
+
+        {/* 6. The Colophon / Newspaper Footer */}
+        <NewspaperFooter />
+      </div>
+    </main>
   );
 }
