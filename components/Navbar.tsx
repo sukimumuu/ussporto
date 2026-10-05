@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaPrint, FaBars, FaTimes, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes, FaEnvelope } from "react-icons/fa";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
