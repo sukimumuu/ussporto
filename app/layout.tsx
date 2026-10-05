@@ -1,35 +1,22 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Newsreader, Courier_Prime, Cinzel } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const cinzel = Cinzel({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-cinzel",
-  weight: ["700", "900"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
-const playfair = Playfair_Display({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-playfair",
-  weight: ["400", "600", "700", "900"],
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const courier = Courier_Prime({
-  subsets: ["latin"],
-  variable: "--font-courier",
-  weight: ["400", "700"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "The Sukimumuu Chronicle | Portfolio Rizqy Bagus Saputra",
-  description: "Portofolio Bergaya Retro Newspaper - Rizqy Bagus Saputra (Web & Backend Developer)",
+  title: "Rizqy Bagus Saputra | Backend Developer & Web Engineer",
+  description: "Portfolio of Rizqy Bagus Saputra - Backend Developer, Web Engineer, and Information Systems student based in Purwokerto, Indonesia.",
 };
 
 export default function RootLayout({
@@ -38,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${cinzel.variable} ${playfair.variable} ${newsreader.variable} ${courier.variable}`}>
-      <body className="font-serif antialiased bg-[#f6f1e5] text-[#1c1917] selection:bg-[#292524] selection:text-[#f6f1e5] min-h-screen">
+    <html lang="id" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
+      <body className="font-sans antialiased bg-zinc-50 text-zinc-900 selection:bg-zinc-900 selection:text-white min-h-screen">
         {children}
       </body>
     </html>
