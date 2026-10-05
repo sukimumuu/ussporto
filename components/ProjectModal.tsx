@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { UnifiedProject } from "@/data/projects";
-import { FaExternalLinkAlt, FaTimes, FaCalendarAlt, FaUserCheck, FaExclamationTriangle } from "react-icons/fa";
+import { FaExternalLinkAlt, FaTimes, FaCalendarAlt, FaShieldAlt, FaLayerGroup } from "react-icons/fa";
 
 interface ProjectModalProps {
   project: UnifiedProject | null;
@@ -29,100 +29,97 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/75 backdrop-blur-xs no-print animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-zinc-950/60 backdrop-blur-xs no-print"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
     >
       <div
-        className="relative w-full max-w-2xl bg-[#fbf7ee] border-4 border-[#181615] shadow-retro-lg p-5 sm:p-7 max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-2xl bg-white border border-zinc-200 rounded-2xl shadow-xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto animate-modal-in"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Vintage Top Notice */}
-        <div className="flex items-center justify-between border-b-2 border-[#181615] pb-2 mb-4">
+        {/* Modal Top Bar */}
+        <div className="flex items-center justify-between pb-4 mb-4 border-b border-zinc-100">
           <div className="flex items-center gap-2">
-            <span className="stamp-tag text-xs">{project.categoryBadge}</span>
-            <span className="font-typewriter text-xs text-[#4a453f] hidden sm:inline">
-              ARSIP DOKUMEN # {project.id.toUpperCase()}
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+              <FaLayerGroup className="text-[10px]" />
+              {project.categoryBadge}
             </span>
           </div>
           <button
             onClick={onClose}
-            className="p-1 border border-[#181615] hover:bg-[#181615] hover:text-[#fbf7ee] transition-colors text-sm font-bold flex items-center gap-1 cursor-pointer"
-            title="Tutup Kliping"
+            className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100 transition-colors cursor-pointer"
+            aria-label="Close details"
           >
-            <FaTimes />
-            <span className="text-xs uppercase font-typewriter">Tutup</span>
+            <FaTimes className="text-sm" />
           </button>
         </div>
 
-        {/* Modal Headline */}
-        <h3 className="font-headline text-2xl sm:text-3xl font-black text-[#181615] leading-tight mb-2 uppercase">
+        {/* Project Title */}
+        <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 leading-snug">
           {project.title}
         </h3>
 
-        {/* Date line */}
-        <div className="flex items-center gap-2 text-xs font-typewriter text-[#4a453f] mb-4 pb-2 border-b border-[#181615]/30">
-          <FaCalendarAlt className="text-[#8b2621]" />
-          <span>PERIODE PENGERJAAN: {project.date}</span>
+        {/* Date / Period */}
+        <div className="flex items-center gap-2 text-xs text-zinc-500 mt-2 mb-4 pb-3 border-b border-zinc-100">
+          <FaCalendarAlt className="text-zinc-400" />
+          <span>Timeline: {project.date}</span>
         </div>
 
-        {/* Project Image Frame */}
-        <div className="border-2 border-[#181615] p-2 bg-white shadow-retro-sm mb-4">
-          <div className="relative aspect-video w-full overflow-hidden bg-[#eae3d2] border border-[#181615]/40">
+        {/* Image Preview Container */}
+        <div className="w-full rounded-xl overflow-hidden bg-zinc-100 border border-zinc-200 mb-5">
+          <div className="relative aspect-video w-full bg-zinc-50 flex items-center justify-center">
             <Image
               src={project.imgSrc}
               alt={project.alt}
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="font-headline italic text-[11px] text-center text-[#4a453f] mt-1.5">
-            Dokumentasi Tangkapan Layar Resmi &bull; {project.title}
-          </p>
         </div>
 
-        {/* Body Description */}
+        {/* Project Description */}
         <div className="mb-5">
-          <h4 className="font-headline font-bold text-xs uppercase tracking-wider text-[#181615] border-b border-[#181615] pb-1 mb-2">
-            Ringkasan &amp; Spesifikasi Proyek
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+            About Project
           </h4>
           <p
-            className="font-news text-base leading-relaxed text-[#181615] text-justify"
+            className="text-sm sm:text-base text-zinc-700 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: project.description }}
           />
         </div>
 
-        {/* Roles */}
-        <div className="mb-5 p-3 bg-[#ede4d1]/60 border border-[#181615]">
-          <h4 className="font-headline font-bold text-xs uppercase tracking-wider text-[#181615] flex items-center gap-2 mb-2">
-            <FaUserCheck className="text-[#8b2621]" />
-            Peran &amp; Tanggung Jawab
+        {/* Roles & Responsibilities */}
+        <div className="mb-5 p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-600 mb-2">
+            Role &amp; Responsibilities
           </h4>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {project.roles.map((role, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 bg-[#fbf7ee] border border-[#181615] font-typewriter text-xs font-semibold text-[#181615]"
+                className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-xs font-medium text-zinc-800 shadow-2xs"
               >
-                &bull; {role}
+                {role}
               </span>
             ))}
           </div>
         </div>
 
-        {/* Note / NDA Alert */}
+        {/* NDA / Special Note Alert */}
         {project.note ? (
-          <div className="mb-5 p-3 border-2 border-dashed border-[#8b2621] bg-[#8b2621]/10 text-xs font-typewriter text-[#8b2621] flex items-start gap-2.5">
-            <FaExclamationTriangle className="mt-0.5 flex-shrink-0 text-base" />
+          <div className="mb-5 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-start gap-2.5">
+            <FaShieldAlt className="mt-0.5 flex-shrink-0 text-sm text-amber-600" />
             <div>
-              <span className="font-bold uppercase block mb-0.5">CATATAN KHUSUS / KERAHASIAN:</span>
-              <p className="font-news text-sm text-[#181615]">{project.note}</p>
+              <span className="font-semibold block mb-0.5">Confidentiality Note:</span>
+              <p className="text-amber-900">{project.note}</p>
             </div>
           </div>
         ) : null}
 
         {/* Footer Actions */}
-        <div className="border-t-2 border-[#181615] pt-4 flex flex-wrap items-center justify-between gap-3">
-          <span className="text-xs font-typewriter text-[#4a453f]">
-            KATEGORI: {project.categoryName.toUpperCase()}
+        <div className="pt-4 border-t border-zinc-100 flex flex-wrap items-center justify-between gap-3">
+          <span className="text-xs text-zinc-400">
+            Category: {project.categoryName}
           </span>
 
           <div className="flex items-center gap-2">
@@ -131,21 +128,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#181615] text-[#fbf7ee] font-typewriter text-xs uppercase font-bold tracking-wider hover:bg-[#8b2621] transition-colors shadow-retro-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 text-xs font-semibold transition-colors"
               >
-                <span>Buka Tautan / Demo</span>
-                <FaExternalLinkAlt className="text-xs" />
+                <span>Visit Project</span>
+                <FaExternalLinkAlt className="text-[10px]" />
               </a>
             ) : (
-              <span className="px-3 py-1.5 border border-[#8b2621] text-[#8b2621] font-typewriter text-xs font-bold uppercase">
-                Tautan Tertutup (NDA)
+              <span className="px-3 py-1.5 rounded-lg border border-zinc-300 text-zinc-600 text-xs font-medium bg-zinc-100">
+                Private / NDA
               </span>
             )}
             <button
               onClick={onClose}
-              className="px-4 py-2 border border-[#181615] font-typewriter text-xs uppercase font-bold hover:bg-[#181615] hover:text-[#fbf7ee] transition-colors cursor-pointer"
+              className="px-3.5 py-2 rounded-lg border border-zinc-200 text-zinc-700 hover:bg-zinc-100 text-xs font-medium transition-colors cursor-pointer"
             >
-              Tutup
+              Close
             </button>
           </div>
         </div>

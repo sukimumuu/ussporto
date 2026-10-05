@@ -28,7 +28,7 @@ export const allProjects: UnifiedProject[] = [
     id: `laravel-${idx}-${p.alt}`,
     category: "laravel" as const,
     categoryName: "Laravel & Backend",
-    categoryBadge: "WARTA LARAVEL",
+    categoryBadge: "Laravel & Backend",
     featured: idx === 0 || idx === 5, // melesat & lumbungdata as featured
   })),
   // Unity Projects
@@ -37,7 +37,7 @@ export const allProjects: UnifiedProject[] = [
     id: `unity-${idx}-${p.alt}`,
     category: "unity" as const,
     categoryName: "Unity & Game Dev",
-    categoryBadge: "EKSPERIMEN GAME",
+    categoryBadge: "Unity Game",
     featured: true,
   })),
   // HTML Projects
@@ -46,7 +46,7 @@ export const allProjects: UnifiedProject[] = [
     id: `html-${idx}-${p.alt}`,
     category: "html" as const,
     categoryName: "Web & Landing Page",
-    categoryBadge: "ARSIP WEB",
+    categoryBadge: "Web & Landing Page",
     featured: false,
   })),
 ];
