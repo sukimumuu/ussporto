@@ -1,40 +1,34 @@
 import React from "react";
-import NewspaperHeader from "@/components/NewspaperHeader";
-import FrontPageHeadline from "@/components/FrontPageHeadline";
-import ProjectDispatches from "@/components/ProjectDispatches";
-import WorkExperienceSection from "@/components/WorkExperienceSection";
-import ClassifiedsSection from "@/components/ClassifiedsSection";
-import NewspaperFooter from "@/components/NewspaperFooter";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen py-4 sm:py-8 px-2 sm:px-4 md:px-6">
-      {/* Vintage Broadsheet Paper Sheet Wrapper */}
-      <div className="max-w-6xl mx-auto p-4 sm:p-8 md:p-10 bg-[#fbf7ee] border-4 border-[#181615] shadow-retro-lg newspaper-sheet relative">
-        {/* Subtle Newspaper Paper Corner Creases / Vintage Frame Accents */}
-        <div className="absolute top-1.5 left-1.5 w-3 h-3 border-t-2 border-l-2 border-[#181615] pointer-events-none" />
-        <div className="absolute top-1.5 right-1.5 w-3 h-3 border-t-2 border-r-2 border-[#181615] pointer-events-none" />
-        <div className="absolute bottom-1.5 left-1.5 w-3 h-3 border-b-2 border-l-2 border-[#181615] pointer-events-none" />
-        <div className="absolute bottom-1.5 right-1.5 w-3 h-3 border-b-2 border-r-2 border-[#181615] pointer-events-none" />
+    <div className="min-h-screen bg-zinc-50 text-zinc-900 flex flex-col">
+      {/* Sticky Clean Navbar */}
+      <Navbar />
 
-        {/* 1. The Masthead / Newspaper Header */}
-        <NewspaperHeader />
+      {/* Main Content Container */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 1. Hero & Bio Section */}
+        <HeroSection />
 
-        {/* 2. Front Page Lead Story & Bio */}
-        <FrontPageHeadline />
+        {/* 2. Projects Archive Section with interactive filters & search */}
+        <ProjectsSection />
 
-        {/* 3. The Project Dispatches Archive (Loaded from @data) */}
-        <ProjectDispatches />
+        {/* 3. Work Experience & Education Section */}
+        <ExperienceSection />
 
-        {/* 4. Hugo Studio Industry Report & Work History */}
-        <WorkExperienceSection />
+        {/* 4. Services & Direct Contact Section */}
+        <ContactSection />
 
-        {/* 5. Retro Classifieds, Humor & Telegraph Contacts */}
-        <ClassifiedsSection />
-
-        {/* 6. The Colophon / Newspaper Footer */}
-        <NewspaperFooter />
-      </div>
-    </main>
+        {/* 5. Minimal Footer */}
+        <Footer />
+      </main>
+    </div>
   );
 }
